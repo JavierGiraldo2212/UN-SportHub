@@ -40,12 +40,10 @@ Este es el núcleo de la aplicación ("Core Domain"). Muestra cómo se crea y co
 ## Diagrama 3: Foro y Comunidad
 
 Interacciones sociales dentro de la plataforma.
+
 ![Diagrama de Foro y Comunidad](https://img.plantuml.biz/plantuml/png/PP71IWCn48RlUOfXJ_LGzovbARGLF0YbM4-2n6JS1hAPPJ81HNogFa9VpCIwck8fCF__V_apMKRHB6dmokEhW12mwmy2rZ4QSHIKDa8CpJucpOvWjWd26BGbRjSu4elBYAi6T8HzH5Qg17NeFK9pVphQv0aimYqnDV2X0594esDMj-d5EwCPjXJbASmUy4selHjqZw5Ta_c1hfwBNWTND62G4ZmJZ3iTmsJEOb5h_mxZIC4YmvHqDDbtEFht2pXZ9c-2IPWVzbV1-zhrIEL-3F-CMK3rgLJP1SpdtM__UZ1rh6Vd8fUnV6Sz-6QhoGlNDGjkOB782yHWkqujyr4-zGi0)
 
 ### Descripción
 
 Todos los usuarios autenticados tienen los mismos privilegios en el foro para fomentar la comunidad horizontal.
 
-```
-
----
