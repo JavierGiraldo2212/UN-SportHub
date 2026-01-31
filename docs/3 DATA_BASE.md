@@ -14,8 +14,8 @@ Esta es la parte clave para tu requerimiento de "Agrupar y Subvariantes".
 * **USERS:** Tabla central. El campo `role` distingue entre Entrenador y Deportista.
 * **SPORT_CATEGORIES:** Usamos una relación reflexiva (`parent_id`).
 * *Ejemplo:*
-* Registro 1: ID=1, Nombre="Fondo", Parent=NULL
-* Registro 2: ID=2, Nombre="10K", Parent=1
+    * Registro 1: ID=1, Nombre="Fondo", Parent=NULL
+    * Registro 2: ID=2, Nombre="10K", Parent=1
 
 
 * El usuario se asigna al ID 2 (10K). Gracias a la relación, sabemos que también es de "Fondo".
