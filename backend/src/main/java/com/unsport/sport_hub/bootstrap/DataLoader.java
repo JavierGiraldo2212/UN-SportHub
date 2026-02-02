@@ -3,6 +3,7 @@ package com.unsport.sport_hub.bootstrap;
 import com.unsport.sport_hub.model.SportCategory;
 import com.unsport.sport_hub.model.User;
 import com.unsport.sport_hub.enums.Role;
+import com.unsport.sport_hub.enums.UserStatus;
 import com.unsport.sport_hub.repository.SportCategoryRepository;
 import com.unsport.sport_hub.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -10,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
-//import java.util.List;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -60,7 +60,7 @@ public class DataLoader implements CommandLineRunner {
             SportCategory c10k = SportCategory.builder().name("10K").parent(fondo).build();
 
             fondo.setSubCategories(Arrays.asList(c5k, c10k));
-            categoryRepository.save(fondo); // Aquí guardamos "Fondo" y por cascada se guardan "5K" y "10K"
+            categoryRepository.save(fondo);
 
             System.out.println("✅ Categorías cargadas exitosamente.");
         }
@@ -71,18 +71,16 @@ public class DataLoader implements CommandLineRunner {
             // Crear Entrenador
             User coach = User.builder()
                     .email("admin@unsport.com")
-                    .password(passwordEncoder.encode("123456")) // Contraseña encriptada
+                    .password(passwordEncoder.encode("123456"))
                     .firstName("Entrenador")
                     .lastName("Principal")
                     .role(Role.COACH)
-                    .isActive(true)
+                    .status(UserStatus.ACTIVE)
                     .build();
 
             userRepository.save(coach);
 
             // Crear Atleta (Asignado a 10K)
-            // Primero buscamos la categoría 10K que acabamos de crear
-            // Nota: En un caso real, validaríamos que exista.
             SportCategory cat10k = categoryRepository.findByParentId(
                     categoryRepository.findAll().stream()
                             .filter(c -> "Fondo".equals(c.getName()))
@@ -95,8 +93,8 @@ public class DataLoader implements CommandLineRunner {
                     .firstName("Juan")
                     .lastName("Corredor")
                     .role(Role.ATHLETE)
-                    .sportCategory(cat10k) // Asignamos su especialidad
-                    .isActive(true)
+                    .sportCategory(cat10k)
+                    .status(UserStatus.ACTIVE)
                     .build();
 
             userRepository.save(athlete);

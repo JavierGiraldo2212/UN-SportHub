@@ -11,5 +11,7 @@ public class UserResponse {
     private String firstName;
     private String lastName;
     private String role;
-    private String categoryName; // Solo el nombre, no todo el objeto
+    private String status;
+    private String categoryName; // Subcategoría o Categoría asignada
+    private String parentCategoryName; // Categoría padre (Ej: Fondo) si aplica
 }
